@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>JWT</title>
+
+    <style>
+        .error {color:red}
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>JWT Directory</h3>
+    <hr>
+
+    <p class="h4 mb-4">Generate JWT token with the username, password and test with API</p>
+
+    <a th:href="@{/JWT/generateToken}"
+       class="btn btn-primary btn-sm mb-3">
+        Generate Token
+    </a>
+
+    <hr>
+
+    <div class="container mt-5">
+        <h2>Get JWT Key, limited for an hour</h2>
+        <pre th:text="${createToken}"></pre>
+    </div>
+<!--
+    <div class="container mt-5">
+        <h2>PayPal Show Order Detail</h2>
+        <pre th:text="${paypalShowOrderDetailJson}"></pre>
+    </div>-->
+
+    <hr>
+
+    <a th:href="@{/staffList}">Back to Employees List</a>
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
