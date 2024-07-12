@@ -25,28 +25,12 @@ public class SteffController {
 
 
     @GetMapping("/staffs")
-    public List<StaffEntity> findAll(/*@RequestHeader(value = "Authorization", required = false) String token*/){
-/*
-        logger.info("sssssssssssssssssssssss " + token);
-
-        if (token != null && token.startsWith("Bearer ")) {
-            String jwtToken = token.substring(7);
-            logger.info("JWT Token: " + jwtToken);
-        } else {
-            logger.info("No JWT Token found in the request header.");
-        }
-*/
+    public List<StaffEntity> findAll(){
         logger.info("Find all staff");
         return staffRepository.findAll();
     }
 
 
-/*
-    GetMapping("/staffs")
-    public List<StaffEntity> findAll(){
-        logger.info("Find all staff");
-        return staffRepository.findAll();
-    }*/
 
     @GetMapping("/staffFindById/{staffId}")
     public StaffEntity findById(@PathVariable int staffId){
@@ -55,7 +39,6 @@ public class SteffController {
         return theStaffEntity;
     }
 
-    //haven't finish 401 errer
     @Transactional
     @PostMapping("/addStaff")
     public StaffEntity addStaff(@RequestBody StaffEntity staffEntity){

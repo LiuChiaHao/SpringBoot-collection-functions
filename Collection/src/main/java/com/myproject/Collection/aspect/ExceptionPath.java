@@ -35,4 +35,13 @@ public class ExceptionPath {
 
 
 
+/*
+
+    // JWT generate path
+
+    @Pointcut("execution(* com.myproject.Collection.service.JWTServiceImplement.resolveToken(..))")
+    public void forJWTResolveToken(){
+    }*/
+
+
 }
