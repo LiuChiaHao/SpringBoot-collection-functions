@@ -5,10 +5,10 @@
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+- [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [License](#license)
@@ -132,7 +132,7 @@ Before you begin, ensure you have the following installed:
        </dependency>
    </dependencies>
 
-5. Accessing the Application
+## Running the Application
 - Once the application is running, you can access it at 'http://localhost:8080'.
 - The API documentation is available via Swagger at 'http://localhost:8080/swagger-ui.html'.
 
