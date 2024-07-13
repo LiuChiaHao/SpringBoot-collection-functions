@@ -183,7 +183,8 @@ Here's an overview of the project structure:
 - SSL/TLS
 
 ## API Documentation
-https://localhost:8443/swagger-ui/index.html
+You can access the API documentation using Swagger UI at the following URL:
+[Swagger UI](https://app.swaggerhub.com/apis/DAVID36924_1/SpringBoot-collection-functions-API/v0)
 
 ## Contributing
 Follow the existing coding style.
