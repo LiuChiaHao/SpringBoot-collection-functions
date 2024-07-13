@@ -1,5 +1,3 @@
-# MyProject Collection
-
 "This Spring Boot project implements secure user authentication and authorization with bcrypt and JWT, offers RESTful APIs, file upload/download, database integration, global exception handling, input validation, logging, monitoring, unit testing, Swagger documentation, SSL configuration, and PayPal payment gateway integration."
 
 ## Table of Contents
@@ -153,18 +151,27 @@ Here's an overview of the project structure:
 - **swagger**: Contains configuration for API documentation.
 
 ## Features
+- Logging and Monitoring: Integrated SLF4J for effective logging and application monitoring.
 - JWT Authentication: Secure authentication mechanism using JSON Web Tokens.
-- Role-based Access Control: Authorization based on user roles to manage access to different resources.
-- File Storage Service: Supports file upload and download operations.
-- PayPal Payment Integration: Enables secure online transactions through PayPal.
-- Global Exception Handling: Consistent and informative error responses across the application.
-- API Documentation with Swagger: Interactive interface for exploring and testing API endpoints.
 - Password Hashing with bcrypt: Ensures secure storage of user passwords.
 - Database Integration: Efficient data management using JPA/Hibernate with MySQL.
+- Global Exception Handling: Consistent and informative error responses across the application.
+![image](https://github.com/user-attachments/assets/85b0b391-977b-424d-9f60-b475a9dc58be)
+- Role-based Access Control: Authorization based on user roles, with higher-level roles having more functionalities
+![image](https://github.com/user-attachments/assets/185e78dd-15d7-41f0-9bb4-669fd95cf129)
+- File Storage Service: Supports file upload and download operations.
+![image](https://github.com/user-attachments/assets/329f29a1-f191-4e7a-9831-85006617ba8c)
+- PayPal Payment Integration: Enables secure online transactions through PayPal.
+![image](https://github.com/user-attachments/assets/046ea7b2-943c-48a3-b124-e07acb53e4bc)
+- API Documentation with Swagger: Interactive interface for exploring and testing API endpoints.
+![image](https://github.com/user-attachments/assets/f5cc4d9a-0d8c-43d3-80a1-7d62851e3b75)
 - Input Validation: Ensures data integrity and security by validating user inputs.
-- Logging and Monitoring: Integrated SLF4J for effective logging and application monitoring.
-- Unit Testing: Validates functionality and reliability of application components through unit tests.
+![image](https://github.com/user-attachments/assets/86ea2b4a-f939-49bb-970f-8a400d09de53)
 - SSL Configuration: Ensures secure data transmission by configuring SSL for the application.
+![image](https://github.com/user-attachments/assets/26dff4ef-c01d-4d20-bb1e-a8abc0063907)
+- Unit Testing: Validates functionality and reliability of application components through unit tests.
+![image](https://github.com/user-attachments/assets/b1afd3de-e0d6-484d-ac73-e617a75f732b)
+
 
 ## Technologies Used
 
