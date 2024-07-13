@@ -189,3 +189,8 @@ Here's an overview of the project structure:
 Follow the existing coding style.
 - https://github.com/paypal
 - https://github.com/auth0/java-jwt
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more info.
+
+
