@@ -182,8 +182,6 @@ Here's an overview of the project structure:
 - Mockito
 - SSL/TLS
 
-## Installation
+## API Documentation
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/your-repo-name.git
+
