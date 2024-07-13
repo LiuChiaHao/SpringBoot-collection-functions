@@ -185,3 +185,7 @@ Here's an overview of the project structure:
 ## API Documentation
 
 
+## Contributing
+Follow the existing coding style.
+- https://github.com/paypal
+- https://github.com/auth0/java-jwt
