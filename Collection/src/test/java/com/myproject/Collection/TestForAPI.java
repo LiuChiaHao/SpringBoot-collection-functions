@@ -36,7 +36,7 @@ public class TestForAPI {
     @Autowired
     private SteffController steffController;
 
-    private final String TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MjA3NzAxMTYsInVzZXJuYW1lIjoic3VzYW4ifQ.cNLttU2xg2wvaz7bKfQu6lHArjdxqR5GUyVrNmqhevI";
+    private final String TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MjEyMDM1NzEsInVzZXJuYW1lIjoic3VzYW4ifQ.KMN417h3UVXi2yAdryVMoKwSN8xhaZY7zUuRgVIMi0E";
 
     @BeforeEach
     public void setup() {
@@ -89,13 +89,13 @@ public class TestForAPI {
         ResultActions positiveCase = mockMvc.perform(post("/api/addStaff")
                 .header("Authorization", "Bearer " + TOKEN)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"firstName\":\"Leo\",\"lastName\":\"mouth\",\"email\":\"leo.mouth@example.com\"}"));
+                .content("{\"firstName\":\"Tom\",\"lastName\":\"mouth\",\"email\":\"tom.mouth@example.com\"}"));
 
         positiveCase.andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(28))
-                .andExpect(jsonPath("$.firstName").value("Leo"))
+                .andExpect(jsonPath("$.id").value(48))
+                .andExpect(jsonPath("$.firstName").value("Tom"))
                 .andExpect(jsonPath("$.lastName").value("mouth"))
-                .andExpect(jsonPath("$.email").value("leo.mouth@example.com"));
+                .andExpect(jsonPath("$.email").value("tom.mouth@example.com"));
     }
 
 
@@ -110,10 +110,10 @@ public class TestForAPI {
         ResultActions positiveCase = mockMvc.perform(put("/api/updateStaff")
                 .header("Authorization", "Bearer " + TOKEN)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"id\":13,\"firstName\":\"Leslie\",\"lastName\":\"Smith\",\"email\":\"leslie.smith@example.com\"}"));
+                .content("{\"id\":12,\"firstName\":\"Leslie\",\"lastName\":\"Smith\",\"email\":\"leslie.smith@example.com\"}"));
 
         positiveCase.andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(13))
+                .andExpect(jsonPath("$.id").value(12))
                 .andExpect(jsonPath("$.firstName").value("Leslie"))
                 .andExpect(jsonPath("$.lastName").value("Smith"))
                 .andExpect(jsonPath("$.email").value("leslie.smith@example.com"));
@@ -122,7 +122,7 @@ public class TestForAPI {
 
     @Test
     public void testDeleteStaff() throws Exception {
-        int staffId = 13;
+        int staffId = 42;
 
         // Mock the staffRepository behavior
         /*when(staffRepository.findById(staffId)).thenReturn(java.util.Optional.of(new StaffEntity("Susan", "Smith", "susan.smith@example.com")));

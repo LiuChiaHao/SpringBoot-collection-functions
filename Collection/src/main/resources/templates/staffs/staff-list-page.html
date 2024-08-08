@@ -47,6 +47,11 @@
             JWT Key
         </a>
 
+        <a th:href="@{/staffList/showOtherFunctions}"
+           class="btn btn-primary btn-sm mb-3">
+            OtherFunctions
+        </a>
+
     </div>
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -98,10 +103,10 @@
             <button type="submit" class="btn btn-info btn-sm">Upload File</button>
 
             <!--button does not support href, so has to use 'a'-->
-            <a th:href="@{/staffList/downloadFile/test.txt}"
+            <!--<a th:href="@{/staffList/downloadFile/test.txt}"
                class="btn btn-info btn-sm spaced-button">
                 Download File
-            </a>
+            </a>-->
 
         </form>
 

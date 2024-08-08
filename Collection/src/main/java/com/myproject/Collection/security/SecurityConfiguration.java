@@ -25,9 +25,11 @@ import javax.sql.DataSource;
 @Configuration
 public class SecurityConfiguration {
 
+
+    // Logger for logging security-related events
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-
+    // inner method to login user
 /*
     @Bean
     public InMemoryUserDetailsManager userDetailsManager() {
@@ -44,14 +46,15 @@ public class SecurityConfiguration {
         return new InMemoryUserDetailsManager(john, mary);
     }*/
 
+    // Get user id and password form database
         @Bean
         public UserDetailsManager userDetailsManager(DataSource dataSource) {
             logger.info("Get data source with Jdbc : {}", dataSource);
-
+            //get user id and password with user id
             JdbcUserDetailsManager theUserDetailsManager = new JdbcUserDetailsManager(dataSource);
             theUserDetailsManager
                     .setUsersByUsernameQuery("select user_id, pw, active from members where user_id=?");
-
+            //get user id and role with user id
             theUserDetailsManager
                     .setAuthoritiesByUsernameQuery("select user_id, role from roles where user_id=?");
 
@@ -65,10 +68,7 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests(configurer ->
                         configurer
 
-                                //.requestMatchers(HttpMethod.POST, "/authenticateProcess").permitAll()
-                               // .requestMatchers(HttpMethod.GET, "/staffList").authenticated()
-
-
+                                // restrict api authorize with role
                                 .requestMatchers(HttpMethod.GET, "/api/staffs").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.GET, "/api/staffs/**").hasRole("EMPLOYEE")
                                 .requestMatchers(HttpMethod.GET, "/api/staffFindById").hasRole("EMPLOYEE")
@@ -81,24 +81,29 @@ public class SecurityConfiguration {
                                 .anyRequest().authenticated()
                 )
 
-
+                // login method
                 .formLogin(form ->
                         form
                                 .loginPage("/loginPage")
+                                //loginProcessingUrl is use to intercept request when user enter username and password to authenticate
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .defaultSuccessUrl("/staffList", true)
                                 .permitAll()
                 ).logout(logout -> logout.permitAll());
 
+        //This line enables HTTP Basic authentication
         http.httpBasic(Customizer.withDefaults());
+        //CSRF is an attack that tricks the victim into submitting a malicious request
         http.csrf(csrf -> csrf.disable());
 
-
+        //after authorize, ot filter JWT login
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
+    // to filter JWT request
+    //UserDetailsService interface can add capabilities to create, update, delete, and query user details.
     @Bean
     public JwtRequestFilter jwtRequestFilter(UserDetailsManager userDetailsManager, JWTServiceImplement theJWTServiceImplement) {
         return new JwtRequestFilter(userDetailsManager, theJWTServiceImplement);

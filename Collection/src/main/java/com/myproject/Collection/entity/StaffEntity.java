@@ -4,16 +4,18 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-
+//@Schema is part of the OpenAPI use to helps to describe the API model properties.
 @Entity
 @Table(name = "employee")
 @Schema(description = "Staff entity representing a staff member.")
 public class StaffEntity {
+    //
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Schema(description = "Unique identifier for the staff member.", example = "1")
     private int id;
+    //@NotNull the blank can not be empty
     @NotNull(message = "First name is required")
     @Size(min=1, message="First name can not be empty")
     @Column(name = "firstName")

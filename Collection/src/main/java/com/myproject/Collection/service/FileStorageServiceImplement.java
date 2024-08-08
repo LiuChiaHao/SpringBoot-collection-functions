@@ -31,10 +31,7 @@ public class FileStorageServiceImplement implements FileStorageService{
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 
-    public FileStorageServiceImplement() {
-
-    }
-
+    //save file
     @Override
     public ResponseEntity<String> saveFile(MultipartFile file) {
 /*
@@ -56,6 +53,7 @@ public class FileStorageServiceImplement implements FileStorageService{
             Path filePath = uploadPath.resolve(file.getOriginalFilename());
             file.transferTo(filePath.toFile());
 
+            // return successful
             return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
 
         } catch (IOException e) {
@@ -69,6 +67,7 @@ public class FileStorageServiceImplement implements FileStorageService{
             Path filePath = Paths.get(UPLOAD_DIR).resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());
 
+            // check if the file is exist then download
             if (resource.exists() && resource.isReadable()) {
                 return ResponseEntity.ok()
                         .contentType(org.springframework.http.MediaType.APPLICATION_OCTET_STREAM)
