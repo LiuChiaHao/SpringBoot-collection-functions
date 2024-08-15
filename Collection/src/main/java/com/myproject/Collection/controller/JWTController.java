@@ -26,8 +26,6 @@ public class JWTController {
     private JWTServiceImplement theJWTServiceImplement;
 
 
-
-
     @GetMapping("/generateToken")
     public String generateToken(Model theModel){
         logger.info("Showing generate token");

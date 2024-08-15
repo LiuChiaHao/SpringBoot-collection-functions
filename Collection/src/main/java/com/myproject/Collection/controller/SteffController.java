@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+//this annotation is used to describe the controller or its endpoints
 @Tag(name = "Staff API", description = "API for managing staff, ues JWT to login")
 public class SteffController {
     private StaffRepository staffRepository;
@@ -32,12 +33,15 @@ public class SteffController {
 
 
     @GetMapping("/staffs")
+    //provide description of the API method
     @Operation(summary = "Get all staff data.")
+    //used to document the possible responses from an API operation
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved all of the staff"),
             @ApiResponse(responseCode = "404", description = "Staff not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    //operation requires specific security requirements, such as authentication or authorization.
     @SecurityRequirement(name = "login")
     public List<StaffEntity> findAll(){
         logger.info("Find all staffs");
@@ -62,7 +66,7 @@ public class SteffController {
         StaffEntity theStaffEntity = staffRepository.findById(staffId).orElseThrow(() -> new EntityNotFoundException("StaffEntity not found with id " + staffId));
         return theStaffEntity;
     }
-
+    //This annotation is used to manage transactions declaratively
     @Transactional
     @PostMapping("/addStaff")
     @Operation(summary = "Add specific staff data.")

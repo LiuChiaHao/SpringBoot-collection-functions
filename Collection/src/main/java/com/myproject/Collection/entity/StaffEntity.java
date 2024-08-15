@@ -5,13 +5,18 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 //@Schema is part of the OpenAPI use to helps to describe the API model properties.
+//@Entity Indicates that this class is a JPA entity.
 @Entity
+// Specifies the name of the database table that this entity maps to.
 @Table(name = "employee")
+//used to provide metadata about the class or field in the generated API documentation
 @Schema(description = "Staff entity representing a staff member.")
 public class StaffEntity {
-    //
+    //The id field will be the unique identifier for each record in the database
     @Id
+    //indicates that the database will automatically generate the primary key for each new record.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //the name of the column in the database table that this field will map to
     @Column(name = "id")
     @Schema(description = "Unique identifier for the staff member.", example = "1")
     private int id;

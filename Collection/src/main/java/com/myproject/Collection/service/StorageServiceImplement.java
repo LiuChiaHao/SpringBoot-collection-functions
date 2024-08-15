@@ -1,6 +1,6 @@
 package com.myproject.Collection.service;
 
-import com.myproject.Collection.config.StorageProperties;
+import com.myproject.Collection.configuration.StorageProperties;
 import com.myproject.Collection.exception.StorageException;
 import com.myproject.Collection.exception.StorageFileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class StorageServiceImplement implements StorageService {
     private final Path rootLocation;
 
     //StorageProperties class return save file path
-    //this method get th file upload location
+    //this method get the file upload location
     @Autowired
     public StorageServiceImplement(StorageProperties properties) {
 
@@ -110,12 +110,13 @@ public class StorageServiceImplement implements StorageService {
         }
     }
 
-    //delete all storage file
+    //delete all file in the storage
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
+    // init the storage file with username
     @Override
     public void init() {
         try {

@@ -1,19 +1,13 @@
 package com.myproject.Collection;
 
-import com.myproject.Collection.config.StorageProperties;
+import com.myproject.Collection.configuration.StorageProperties;
 import com.myproject.Collection.service.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.SecurityFilterChain;
 
 @SpringBootApplication
 @EnableScheduling
@@ -24,6 +18,8 @@ public class CollectionFunctionApplication {
 		SpringApplication.run(CollectionFunctionApplication.class, args);
 	}
 
+
+	//initial the storage service delete all file in the storage and make a user directory
 	@Bean
 	CommandLineRunner init(StorageService storageService) {
 		return (args) -> {

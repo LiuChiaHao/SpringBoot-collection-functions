@@ -19,6 +19,7 @@ import java.io.IOException;
 public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    //handle EntityNotFoundException
     @ExceptionHandler(EntityNotFoundException.class)
     public String handleEntityNotFoundException(EntityNotFoundException ex, RedirectAttributes redirectAttributes) {
         logger.error("Handle exception {}", ex.getMessage());
@@ -26,6 +27,7 @@ public class GlobalExceptionHandler {
         return "redirect:/staffList";
     }
 
+    //handle NotValidException
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handleNotValidException(MethodArgumentNotValidException ex, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("errorMessage", ex.getMessage());

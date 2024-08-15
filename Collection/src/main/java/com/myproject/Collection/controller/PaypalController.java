@@ -24,6 +24,7 @@ public class PaypalController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
+    //create order
     @GetMapping("/createOrder")
     //@ResponseBody
     public String createOrder(Model theModel){
@@ -33,6 +34,7 @@ public class PaypalController {
         return "paypal-page";
     }
 
+    //show order
     @GetMapping("/showOrderDetail")
     public String showOrderDetail(Model theModel){
         logger.info("Show Order Detail");
